@@ -15,8 +15,8 @@ else
 fi
 
 rootpath=${0/%run.sh/''}
-log_path=$rootpath$1/'node.'$1'.log'
-log_path_bak=/home/$1_logs/node.$1.`date +%Y-%m-%d_%H:%M`.log
+log_path=$rootpath'apps'/$1/'node.'$1'.log'
+log_path_bak=/home/$1_logs/node.$1.`date +%Y-%m-%d_%H:%M:%S`.log
 
 echo 'exised pid: '$pid
 echo 'start env: '$start_env
@@ -31,7 +31,7 @@ mv $log_path $log_path_bak
 touch $log_path
 sleep 1
 
-app=$rootpath$1/app.js
+app=$rootpath'apps'/$1/app.js
 NODE_ENV=$start_env node $app &>$log_path&
 
 ulimit -n
