@@ -14,6 +14,8 @@ else
     start_env=production
 fi
 
+mkdir -p /home/$1_logs
+
 rootpath=${0/%run.sh/''}
 log_path=$rootpath'apps'/$1/'node.'$1'.log'
 log_path_bak=/home/$1_logs/node.$1.`date +%Y-%m-%d_%H:%M:%S`.log
