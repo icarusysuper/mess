@@ -47,6 +47,8 @@ app.get('/', function(req, res, next) {
     }, Math.random() * 2000)
 })
 
+app.get('/hello', (req, res) => res.send('hello'))
+
 app.listen(port, function() {
     ms.log.info('server is running on port', port)
 })
